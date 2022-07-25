@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    tools:context=".pruebalist">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMenu"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+
+        android:background="@android:color/holo_orange_dark"></androidx.appcompat.widget.Toolbar>
+
+    <Spinner
+        android:id="@+id/sp02"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/toolbarMenu"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/spinner_draw1"
+        android:dropDownSelector="#FFFFFF"
+        android:foregroundTint="#671717"
+        android:popupBackground="#F78A0D"
+        android:spinnerMode="dialog"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"></Spinner>
+
+    <ListView
+        android:id="@+id/lvlProgram"
+        android:layout_width="406dp"
+        android:layout_height="670dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="#571D1D"
+        android:backgroundTint="#0C2C01" />
+
+</RelativeLayout>

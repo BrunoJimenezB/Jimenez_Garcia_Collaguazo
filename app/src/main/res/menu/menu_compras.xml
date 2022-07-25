@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_comprasrealizadas"
+        android:icon="@drawable/shoppingcart"
+        android:title="Compras"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_compras"
+        android:icon="@drawable/eye"
+        android:title="Mostrar Compras"
+        app:showAsAction="always" />
+    <group
+
+        android:id="@+id/idgrouoUsuario">
+        <item
+            android:id="@+id/menuUser"
+            android:title="Usuario" />
+        <item
+            android:id="@+id/menuUsuario"
+            android:title="Cambiar Contraseña" />
+        <item
+            android:id="@+id/menuCerrarCesion"
+            android:title="Cerrar Sesión" />
+    </group>
+</menu>

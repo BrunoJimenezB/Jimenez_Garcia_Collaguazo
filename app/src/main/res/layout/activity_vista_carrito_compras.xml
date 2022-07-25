@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#202732"
+    tools:context=".VistaCarritoCompras">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMenu3"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+
+        android:background="@android:color/holo_orange_dark"></androidx.appcompat.widget.Toolbar>
+
+    <ListView
+        android:id="@+id/listViewCarritoCompras"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp" />
+
+    <TextView
+        android:id="@+id/textViewTotales"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:textSize="16sp"
+        android:textStyle="bold|italic" />
+
+    <Button
+        android:id="@+id/buttonCompra"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:background="@drawable/button_round"
+        android:gravity="center"
+        android:text="Comprar"
+        app:iconGravity="start"
+        app:iconPadding="20dp" />
+
+</LinearLayout>
