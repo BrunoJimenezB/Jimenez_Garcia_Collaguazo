@@ -23,12 +23,14 @@ public class Login {
    
     private String Usuario;
 
-    public Login(String usuario, String password) {
+    public Login(String usuario, String password, String Correo) {
         this.Usuario = usuario;
         this.Contraseña = password;
+        this.Correo = Correo;
         
     }
 
     private String Contraseña;
+    private String Correo;
     
 }

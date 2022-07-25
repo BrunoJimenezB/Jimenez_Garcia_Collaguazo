@@ -140,7 +140,7 @@ botonCrearUsuario.setOnClickListener(new View.OnClickListener() {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ServiciosApi servicio =  retrofit.create(ServiciosApi.class);
-        loginInicio  = new Login(usuario, password);
+        loginInicio  = new Login(usuario, password, "sd");
         Call<Login> call = servicio.createLoginInicio(loginInicio);
 //        Vector vectorVideojuego = new Vector();
 //        Vector vectorStock = new Vector();
