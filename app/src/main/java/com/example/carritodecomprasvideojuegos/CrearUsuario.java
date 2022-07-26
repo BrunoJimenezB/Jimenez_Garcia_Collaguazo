@@ -81,7 +81,7 @@ TextView textViewMensaje;
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             ServiciosApi servicio =  retrofit.create(ServiciosApi.class);
-            login  = new Login(cedula, password, "fd");
+            login  = new Login(cedula, password, "fds");
             Call<Login> call = servicio.createPostLogin(login);
 //        Vector vectorVideojuego = new Vector();
 //        Vector vectorStock = new Vector();
