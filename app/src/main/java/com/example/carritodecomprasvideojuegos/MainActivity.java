@@ -111,7 +111,8 @@ botonCrearUsuario.setOnClickListener(new View.OnClickListener() {
 
         Boolean valor = false;
         for (Login list : listalogin){
-            if(list.getUsuario().equals(usuario) && list.getPassword().equals(password)) {
+
+            if(list.ge().equals(usuario) && list.getPassword().equals(password)) {
                 valor = true;
                 NombreUsuario = list.getUsuario();
             }
@@ -140,7 +141,7 @@ botonCrearUsuario.setOnClickListener(new View.OnClickListener() {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ServiciosApi servicio =  retrofit.create(ServiciosApi.class);
-        loginInicio  = new Login(usuario, password, "sd");
+        loginInicio  = new Login(usuario, password, "brunorodrigo44@hotmail.com");
         Call<Login> call = servicio.createLoginInicio(loginInicio);
 //        Vector vectorVideojuego = new Vector();
 //        Vector vectorStock = new Vector();

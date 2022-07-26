@@ -31,6 +31,15 @@ public class Login {
     }
 
     private String Contraseña;
+
+    public String getCorreo() {
+        return Correo;
+    }
+
+    public void setCorreo(String correo) {
+        Correo = correo;
+    }
+
     private String Correo;
     
 }
