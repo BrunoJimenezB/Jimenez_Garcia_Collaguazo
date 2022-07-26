@@ -112,7 +112,7 @@ botonCrearUsuario.setOnClickListener(new View.OnClickListener() {
         Boolean valor = false;
         for (Login list : listalogin){
 
-            if(list.ge().equals(usuario) && list.getPassword().equals(password)) {
+            if(list.getCorreo().equals(usuario) && list.getPassword().equals(password)) {
                 valor = true;
                 NombreUsuario = list.getUsuario();
             }
