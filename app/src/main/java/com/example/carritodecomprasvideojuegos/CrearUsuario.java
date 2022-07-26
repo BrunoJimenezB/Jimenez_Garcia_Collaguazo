@@ -56,21 +56,25 @@ TextView textViewMensaje;
             public void onClick(View view) {
                 Boolean valor=false;
                 String cedula = txtCedula.getText().toString();
-                for (Cliente listadoClientes: listaClientes){
-                    if(listadoClientes.getCedula().contains(cedula)){
-                        Toast.makeText(CrearUsuario.this, "Usuario ya existe", Toast.LENGTH_SHORT).show();
-                        valor=true;
-                    }
+              boolean cedulaV=  validadorDeCedula(cedula);
+                if(cedulaV == true ) {
+
                 }
-                if(valor.equals(true)){
-                    Toast.makeText(CrearUsuario.this, "Usuario ya existe", Toast.LENGTH_SHORT).show();
-                    valor = false;
-                }else {
-                  //  String token = "eJIDFAOKisFDSFJASLFS==28kDAVz";
-                    createCliente(txtCedula.getText().toString(), txtnombre.getText().toString(), txtApellido.getText().toString(), txtDireccion.getText().toString(), txtEmail.getText().toString());
-                    CreateLogin(txtCedula.getText().toString(), txtPassword.getText().toString());
-                    //         Toast.makeText(getApplicationContext(), listaClientes.get(1).getNombre().toString(), Toast.LENGTH_SHORT).show();
-                }
+//                for (Cliente listadoClientes: listaClientes){
+//                    if(listadoClientes.getCedula().equals(cedula)){
+//                        Toast.makeText(CrearUsuario.this, "Usuario ya existe", Toast.LENGTH_SHORT).show();
+//                        valor=true;
+//                    }
+//                }
+//                if(valor.equals(true)){
+//                    Toast.makeText(CrearUsuario.this, "Usuario ya existe", Toast.LENGTH_SHORT).show();
+//                    valor = false;
+//                }else {
+//                  //  String token = "eJIDFAOKisFDSFJASLFS==28kDAVz";
+//                    createCliente(txtCedula.getText().toString(), txtnombre.getText().toString(), txtApellido.getText().toString(), txtDireccion.getText().toString(), txtEmail.getText().toString());
+//                    CreateLogin(txtCedula.getText().toString(), txtPassword.getText().toString());
+//                    //         Toast.makeText(getApplicationContext(), listaClientes.get(1).getNombre().toString(), Toast.LENGTH_SHORT).show();
+//                }
                 }
         });
     }
@@ -191,6 +195,54 @@ TextView textViewMensaje;
             }
         });
 
+    }
+    public boolean validadorDeCedula(String cedula) {
+        boolean cedulaCorrecta = false;
+
+        try {
+
+            if (cedula.length() == 10) // ConstantesApp.LongitudCedula
+            {
+                int tercerDigito = Integer.parseInt(cedula.substring(2, 3));
+                if (tercerDigito < 6) {
+// Coeficientes de validación cédula
+// El decimo digito se lo considera dígito verificador
+                    int[] coefValCedula = { 2, 1, 2, 1, 2, 1, 2, 1, 2 };
+                    int verificador = Integer.parseInt(cedula.substring(9,10));
+                    int suma = 0;
+                    int digito = 0;
+                    for (int i = 0; i < (cedula.length() - 1); i++) {
+                        digito = Integer.parseInt(cedula.substring(i, i + 1))* coefValCedula[i];
+                        suma += ((digito % 10) + (digito / 10));
+                    }
+
+                    if ((suma % 10 == 0) && (suma % 10 == verificador)) {
+                        cedulaCorrecta = true;
+                    }
+                    else if ((10 - (suma % 10)) == verificador) {
+                        cedulaCorrecta = true;
+                    } else {
+                        cedulaCorrecta = false;
+                    }
+                } else {
+                    cedulaCorrecta = false;
+                }
+            } else {
+                cedulaCorrecta = false;
+            }
+        } catch (NumberFormatException nfe) {
+            cedulaCorrecta = false;
+        } catch (Exception err) {
+            System.out.println("Una excepcion ocurrio en el proceso de validadcion");
+            cedulaCorrecta = false;
+        }
+
+        if (!cedulaCorrecta) {
+            Toast.makeText(this, "Cedula Ingresada Incorrecta", Toast.LENGTH_SHORT).show();
+        } else{
+            Toast.makeText(this, "Cedula Correcta", Toast.LENGTH_SHORT).show();
+        }
+        return cedulaCorrecta;
     }
 
 }
