@@ -134,7 +134,7 @@ botonCrearUsuario.setOnClickListener(new View.OnClickListener() {
         String usuario = txtUsuario.getText().toString();
         String password = txtPassword.getText().toString();
 
-        MyApplication.valorInicial = usuario;
+
         MyApplication.valorContra = password;
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://res-movil.herokuapp.com/api/games/")

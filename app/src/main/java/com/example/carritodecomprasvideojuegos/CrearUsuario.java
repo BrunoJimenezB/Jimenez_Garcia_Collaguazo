@@ -69,8 +69,9 @@ TextView textViewMensaje;
                       valor = false;
                   }else {
                       //  String token = "eJIDFAOKisFDSFJASLFS==28kDAVz";
+                      MyApplication.valorInicial = txtCedula.getText().toString();
                       createCliente(txtCedula.getText().toString(), txtnombre.getText().toString(), txtApellido.getText().toString(), txtDireccion.getText().toString(), txtEmail.getText().toString());
-                      CreateLogin(txtCedula.getText().toString(), txtPassword.getText().toString());
+                      CreateLogin(txtCedula.getText().toString(), txtPassword.getText().toString(), txtEmail.getText().toString());
                       //         Toast.makeText(getApplicationContext(), listaClientes.get(1).getNombre().toString(), Toast.LENGTH_SHORT).show();
                   }                                                                     
               } else{
@@ -80,15 +81,17 @@ TextView textViewMensaje;
                 }
         });
     }
-    public void CreateLogin(String cedula, String password){
+    public void CreateLogin(String cedula, String password, String correo){
         if (ContraValidarCaracteres.PASSWORD_PATTERN.matcher(password).matches()) {
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl("https://res-movil.herokuapp.com/api/games/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             ServiciosApi servicio =  retrofit.create(ServiciosApi.class);
-            login  = new Login(cedula, password, "fds");
+
+            login  = new Login(cedula, password, correo);
             Call<Login> call = servicio.createPostLogin(login);
+
 //        Vector vectorVideojuego = new Vector();
 //        Vector vectorStock = new Vector();
 //        Vector vectorCodigo = new Vector();
