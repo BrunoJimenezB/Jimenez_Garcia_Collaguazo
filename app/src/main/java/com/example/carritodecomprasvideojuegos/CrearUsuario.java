@@ -57,24 +57,26 @@ TextView textViewMensaje;
                 Boolean valor=false;
                 String cedula = txtCedula.getText().toString();
               boolean cedulaV=  validadorDeCedula(cedula);
-                if(cedulaV == true ) {
+              if (cedulaV == true ) {
+                  for (Cliente listadoClientes: listaClientes){
+                      if(listadoClientes.getCedula().equals(cedula)){
+                          Toast.makeText(CrearUsuario.this, "Usuario ya existe", Toast.LENGTH_SHORT).show();
+                          valor=true;
+                      }
+                  }
+                  if(valor.equals(true)){
+                      Toast.makeText(CrearUsuario.this, "Usuario ya existe", Toast.LENGTH_SHORT).show();
+                      valor = false;
+                  }else {
+                      //  String token = "eJIDFAOKisFDSFJASLFS==28kDAVz";
+                      createCliente(txtCedula.getText().toString(), txtnombre.getText().toString(), txtApellido.getText().toString(), txtDireccion.getText().toString(), txtEmail.getText().toString());
+                      CreateLogin(txtCedula.getText().toString(), txtPassword.getText().toString());
+                      //         Toast.makeText(getApplicationContext(), listaClientes.get(1).getNombre().toString(), Toast.LENGTH_SHORT).show();
+                  }                                                                     
+              } else{
+                  Toast.makeText(getApplicationContext(), "Cedula Incorrecta", Toast.LENGTH_SHORT).show();
+              }
 
-                }
-//                for (Cliente listadoClientes: listaClientes){
-//                    if(listadoClientes.getCedula().equals(cedula)){
-//                        Toast.makeText(CrearUsuario.this, "Usuario ya existe", Toast.LENGTH_SHORT).show();
-//                        valor=true;
-//                    }
-//                }
-//                if(valor.equals(true)){
-//                    Toast.makeText(CrearUsuario.this, "Usuario ya existe", Toast.LENGTH_SHORT).show();
-//                    valor = false;
-//                }else {
-//                  //  String token = "eJIDFAOKisFDSFJASLFS==28kDAVz";
-//                    createCliente(txtCedula.getText().toString(), txtnombre.getText().toString(), txtApellido.getText().toString(), txtDireccion.getText().toString(), txtEmail.getText().toString());
-//                    CreateLogin(txtCedula.getText().toString(), txtPassword.getText().toString());
-//                    //         Toast.makeText(getApplicationContext(), listaClientes.get(1).getNombre().toString(), Toast.LENGTH_SHORT).show();
-//                }
                 }
         });
     }
