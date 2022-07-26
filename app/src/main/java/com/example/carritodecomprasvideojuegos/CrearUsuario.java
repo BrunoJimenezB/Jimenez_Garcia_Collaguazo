@@ -109,7 +109,7 @@ TextView textViewMensaje;
                     Toast.makeText(CrearUsuario.this, "Usuario agregado", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
-                    finish();
+                    //finish();
 
 
                     //    vistaVideojuegos.setAdapter(adapter);
